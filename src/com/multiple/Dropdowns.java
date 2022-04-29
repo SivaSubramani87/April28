@@ -1,16 +1,21 @@
 package com.multiple;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class Dropdowns {
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, IOException {
 
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Users\\ELCOT\\eclipse-workspace\\SleniumDay3\\Driver\\chromedriver.exe");
@@ -71,5 +76,17 @@ public class Dropdowns {
 		Thread.sleep(2000);
 		
 		sl.selectByValue("banana");
+		
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		
+		File screenshotAs = ts.getScreenshotAs(OutputType.FILE);
+		
+		System.out.println(screenshotAs);
+		
+		FileUtils.copyFile(screenshotAs,new File ("C:\\Users\\ELCOT\\Pictures\\Samples\\April28\\New folder\\sample.png"));
+		
+		
+		
+		
 	}
 }
