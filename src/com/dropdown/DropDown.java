@@ -89,7 +89,7 @@ public static void main(String[] args) {
 	}
 	
 	
-	
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 	
 	
 	
